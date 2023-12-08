@@ -60,6 +60,7 @@ void TrafficLight::cycleThroughPhases()
     std::chrono::high_resolution_clock::time_point endTimer;
     
     while(true){
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
         endTimer = std::chrono::high_resolution_clock::now();
         if((endTimer-startTimer)>std::chrono::seconds(cycleDuration)){
             if(_currentPhase == red){
