@@ -4,6 +4,7 @@
 #include <mutex>
 #include <deque>
 #include <condition_variable>
+#include <chrono>
 #include "TrafficObject.h"
 
 // forward declarations to avoid include cycle
@@ -42,11 +43,11 @@ public:
     ~TrafficLight();
 
     // getters / setters
-
+    TrafficLightPhase getCurrentPhase();
     // typical behaviour methods
     void waitForGreen();
     void simulate();
-    TrafficLightPhase getCurrentPhase();
+    
 private:
     // Member variables
     TrafficLightPhase _currentPhase;
