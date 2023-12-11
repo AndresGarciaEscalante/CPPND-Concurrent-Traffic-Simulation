@@ -37,6 +37,10 @@ TrafficLight::TrafficLight()
     _currentPhase = TrafficLightPhase::red;
 }
 
+TrafficLight::~TrafficLight()
+{
+}
+
 void TrafficLight::waitForGreen()
 {
     // FP.5b : add the implementation of the method waitForGreen, in which an infinite while-loop 
@@ -73,7 +77,6 @@ void TrafficLight::cycleThroughPhases()
     auto cycleDuration = std::rand()%3+4;
     auto startTimer = std::chrono::high_resolution_clock::now();
     std::chrono::high_resolution_clock::time_point endTimer;
-    
     while(true){
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         endTimer = std::chrono::high_resolution_clock::now();
